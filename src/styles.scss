@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-main-purple: #6558f5;
+  --color-hover-purple: #5345f1;
+  --color-table-header: #dee6ee;
+  --color-table-row: #f8f9fa;
+  --color-table-border: #9eadba;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+div.container {
+  margin: 40px auto;
+  width: 980px;
+}
+
+input,
+select {
+  outline: none;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Star Wars People</h1>
+
+  <button type="button" class="load-people" (click)="loadPeople(1, true)">Load People</button>
+
+  <div class="table-group">
+    <div class="filter">
+      <label for="">Find by</label>
+      <select [(ngModel)]="filterKey">
+        <option *ngFor="let option of filterOptions" [value]="option.key">{{ option.val }}</option>
+      </select>
+      <input type="text" class="filter-search" [(ngModel)]="filterSearch" (keyup.enter)="search()">
+    </div>
+
+    <table>
+      <tr>
+        <th (click)="sortBy('name')">Name</th>
+        <th (click)="sortBy('homeworld')">Home World</th>
+        <th (click)="sortBy('birth_year')">Birth Year</th>
+        <th (click)="sortBy('films')">Films</th>
+      </tr>
+      <tr *ngFor="let person of people">
+        <td>{{ person.name }}</td>
+        <td>{{ person.homeworld }}</td>
+        <td>{{ person.birth_year }}</td>
+        <td>
+          <p *ngFor="let film of person.films">{{ film }}</p>
+        </td>
+      </tr>
+    </table>
+
+    <div class="paging">
+      <span>{{ numPeople }} people</span>
+      <button type="button" (click)="goToPage(0)"><<</button>
+      <button type="button" (click)="pageBack()"><</button>
+      <input type="text" [(ngModel)]="currentPage" (keyup.enter)="goToPage(currentPage)" >
+      <span>of {{ numMaxPages }}</span>
+      <button type="button" (click)="pageForward()">></button>
+      <button type="button" (click)="goToPage(numMaxPages)">>></button>
+    </div>
+  </div>
+</div>
